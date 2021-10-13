@@ -1,21 +1,21 @@
+const checkInput = require("./lib/js-api/check-input");
+const getFiles = require("./lib/js-api/get-files");
+const filterFiles = require("./lib/js-api/filter-files");
 const getLinks = require("./lib/js-api/get-links");
-// const path = require("path");
-// const filterFiles = require("./lib/js-api/filter-files");
 
 let input = process.argv[2];
 
-const print = (callback) => {
-  console.log(callback);
-};
+const mdLinks = (input) => {
+  const paths = checkInput(input);
+  let files = undefined;
+  if (paths.length == 2) files = getFiles(paths[1], paths[0])
+  else files = [paths[0]];
+  const mdFiles = filterFiles(files);
+  const links = [];
+  mdFiles.forEach((file) => links.push(...getLinks(file)));
+  return links
+}
 
-/*print(
-  getFiles(
-    input,
-    path
-      .resolve(input)
-      .substr(0, path.resolve(input).length - input.length)
-  )
-);*/
+console.log(mdLinks(input));
 
-print(getLinks(input));
 
