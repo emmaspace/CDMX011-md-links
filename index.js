@@ -19,10 +19,13 @@ const mdLinks = async (input) => {
     links.map((link) =>
       verify(link)
         .then((response) => {
-          if (response.status === 200) return { status: response.status, message: "ok" };
+          if (response.status===200) return { status: response.status, message: "ok" }
           else return { status: response.status, message: "fail" };
         })
-        .catch((err) => err)
+        .catch((err) => {
+          const obj = { status: err.response.status, message: "fail" }
+          return obj
+        })
     )
   )
   linksInfo = Promise.all(linksInfo.map(async (obj, index) => {
