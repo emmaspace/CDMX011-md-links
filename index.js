@@ -19,26 +19,28 @@ const mdLinks = async (input) => {
     links.map((link) =>
       verify(link)
         .then((response) => {
-          if (response.status===200) return { status: response.status, message: "ok" }
-          else return { status: response.status, message: "fail" };
+          const obj = { status: response.status, message: "ok" };
+          return obj;
         })
         .catch((err) => {
-          const obj = { status: err.response.status, message: "fail" }
-          return obj
+          if (err.response) {
+            const obj = { status: err.response.status, message: "fail" };
+            return obj;
+          } else err;
         })
     )
-  )
-  linksInfo = Promise.all(linksInfo.map(async (obj, index) => {
-    const properties = await stats;
-    return Object.assign(obj, properties[index]);
-  }));
-  return await linksInfo
+  );
+  linksInfo = Promise.all(
+    linksInfo.map((obj, index) =>
+      stats
+        .then((properties) => Object.assign(obj, properties[index]))
+        .catch((err) => err)
+    )
+  );
+  return await linksInfo;
 };
-
-/*
 const print = async () => {
   console.log(await mdLinks(input));
 };
 
 print();
-*/
