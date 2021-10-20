@@ -91,8 +91,6 @@ Broken: {rgb(58, 228, 211) ${
 
 app(cli.input, process.cwd(), cli.flags);
 
-
-// https://patorjk.com/software/taag/#p=display&f=Small%20Caps&t=md%20links
 /*
                                                                             
                                               ░░░░░░                        
