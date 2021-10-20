@@ -6,7 +6,14 @@ module.exports = (file) => {
   const links = [];
   const render = new marked.Renderer();
   render.link = (href, title, text) => {
-    if (href.startsWith("#") === false) {
+    if (
+      href !== "" &&
+      href.startsWith("#") === false &&
+      href.startsWith("..") === false &&
+      href.endsWith(".md") === false &&
+      href.endsWith(".json") === false &&
+      href.startsWith("mail") === false
+    ) {
       links.push({
         href: href,
         text: text,

@@ -7,6 +7,7 @@ module.exports = (link) => {
       return response;
     })
     .catch(function (error) {
-      return error.response;
+      if (error.response) return error.response;
+      else error
     })
 };

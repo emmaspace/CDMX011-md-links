@@ -1,12 +1,11 @@
-// const { cwd } = require("process");
 const path = require("path");
 
 module.exports = (input) => {
   if (input === undefined) {
-    //input = cwd();
     return console.log("Please introduce a path to a file or directory");
   }
-  if (input[input.length - 1] === "/") input = input.substr(0, input.length - 1);
+  if (input[input.length - 1] === "/")
+    input = input.substr(0, input.length - 1);
   if (input.includes(".")) {
     if (path.isAbsolute(input) === false) {
       const absolute = path.resolve(input);
@@ -28,9 +27,7 @@ module.exports = (input) => {
     if (path.isAbsolute(input) === false) {
       const absolute = path.resolve(input);
       return [
-        path
-          .resolve(input)
-          .substr(0, path.resolve(input).length - input.length),
+        absolute.substr(0, path.resolve(input).length - input.length),
         input,
       ];
     } else {
