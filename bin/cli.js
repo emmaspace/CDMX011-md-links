@@ -124,3 +124,4 @@ Broken: {rgb(58, 228, 211) ${
 };
 
 app(cli.input, process.cwd(), cli.flags);
+
