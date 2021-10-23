@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "babel index.js"
+    "build": "babel index.js",
+    "eslint": "eslint --ext .js lib/ bin/ test/"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
     "link"
   ],
   "author": "Emma Rose",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "md-links": "./bin/cli.js"
   },
@@ -29,16 +30,21 @@
   },
   "homepage": "https://github.com/emmaspace/CDMX011-md-links#readme",
   "dependencies": {
+    "@babel/runtime": "^7.15.4",
     "axios": "^0.23.0",
     "chalk": "^4.1.2",
+    "eslint-plugin-jest": "^25.2.2",
     "marked": "^3.0.7",
     "meow": "^9.0.0",
-    "npm": "^8.1.0"
+    "npm": "^8.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "jest": "^27.3.1"
   }
 }
