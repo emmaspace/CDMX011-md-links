@@ -112,6 +112,7 @@ Unique: {rgb(58, 228, 211) ${
             links.filter((link, i) => links.indexOf(link) === i).length
           }}`);
         else if (flags.validate === true && flags.stats === true)
+          console.log(info)
           return console.log(chalk`Total: {rgb(58, 228, 211) ${info.length}}
 Unique: {rgb(58, 228, 211) ${
             links.filter((link, i) => links.indexOf(link) === i).length
