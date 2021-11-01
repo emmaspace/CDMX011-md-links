@@ -112,7 +112,6 @@ Unique: {rgb(58, 228, 211) ${
             links.filter((link, i) => links.indexOf(link) === i).length
           }}`);
         else if (flags.validate === true && flags.stats === true)
-          console.log(info)
           return console.log(chalk`Total: {rgb(58, 228, 211) ${info.length}}
 Unique: {rgb(58, 228, 211) ${
             links.filter((link, i) => links.indexOf(link) === i).length
@@ -121,8 +120,10 @@ Broken: {rgb(58, 228, 211) ${
             info.filter((obj) => obj.message === "fail").length
           }}`);
       })
-      .catch((err) => console.log(chalk`{rgb(255, 0, 43) ${err}}`));
+      .catch((err) => {
+        console.log(chalk`{rgb(255, 0, 43) ${err}}`)
+        throw err
+      });
 };
 
 app(cli.input, process.cwd(), cli.flags);
-

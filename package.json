@@ -8,9 +8,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest /test --coverage",
     "build": "babel index.js",
-    "eslint": "eslint --ext .js lib/ bin/ test/"
+    "eslint": "eslint --ext .js lib/ bin/ test/",
+    "testing": "jest --watch"
   },
   "repository": {
     "type": "git",

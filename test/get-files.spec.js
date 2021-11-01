@@ -10,6 +10,7 @@ describe("getFiles", () => {
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/Readme2.md",
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/ReadmeData.md",
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/chunches.js",
+    "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/prueba-sin-md/hola.js",
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/prueba2/.DS_Store",
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/prueba2/Readme-gym.md",
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/prueba2/Readme.md",
@@ -24,6 +25,11 @@ describe("getFiles", () => {
     "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/prueba2/prueba3/prueba4/ReadmeLab.md",
   ];
   it("should return all the files in the directory", () => {
-    expect(getFiles("prueba", "/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/")).toEqual(output);
+    expect(getFiles("prueba")).toEqual(output);
+  });
+  it("should return the same file", () => {
+    expect(getFiles("prueba/Readme.md")).toEqual(
+      ["/Users/emma/Documents/Laboratoria/Proyectos/CDMX011-md-links/prueba/Readme.md"]
+    );
   });
 });
